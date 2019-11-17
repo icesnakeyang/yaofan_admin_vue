@@ -12,7 +12,8 @@
 
 <style>
     .app {
-        padding: 0px;
-        margin: 0px
+        background-color: #5b6270;
+        margin: 0 auto;
+        height: 100%;
     }
 </style>

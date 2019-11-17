@@ -3,14 +3,16 @@ import Router from 'vue-router'
 import baseLayout from "@/pages/layout/baseLayout";
 import registerHeader from "@/pages/user/register/registerHeader";
 import register from "@/pages/user/register/register";
+import baseSider from "../pages/layout/baseSider";
+import guestLayout from '../pages/layout/guestLayout'
 
 Vue.use(Router)
 
 const router = new Router({
     routes: [
         {
-            path: '/',
-            component: baseLayout,
+            path: '/guest',
+            component: guestLayout,
             children: [
                 {
                     path: '/register',
@@ -18,6 +20,19 @@ const router = new Router({
                     components: {
                         header: registerHeader,
                         content: register
+                    }
+                }
+            ]
+        },
+        {
+            path: '/',
+            component: baseLayout,
+            children: [
+                {
+                    path: '/dashboard',
+                    name: 'dashboard',
+                    components: {
+                        sider: baseSider
                     }
                 }
             ]
