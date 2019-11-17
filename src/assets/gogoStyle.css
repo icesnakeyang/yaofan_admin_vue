@@ -1,50 +1,51 @@
 .gogo_content {
-  margin: 10px 10px 0;
-  /*minHeight: 500px;*/
+    margin: 20px;
+    background: #fff;
+    minHeight: 260px
 }
 
 .gogo_title {
-  font-size: 20px;
-  color: aliceblue;
+    font-size: 20px;
+    color: aliceblue;
 }
 
 .gogo_menuItem {
-  font-size: 32px;
-  padding-right: 10px;
-  padding-left: 10px;
+    font-size: 32px;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 
 .gogo_menuItem_icon {
-  font-size: 32px;
-  padding-right: 10px;
-  padding-left: 10px;
-  /*margin: 0px;*/
+    font-size: 32px;
+    padding-right: 10px;
+    padding-left: 10px;
+    /*margin: 0px;*/
 }
 
 .gogo_menuItem_text {
-  font-size: 16px;
+    font-size: 16px;
 }
 
 .gogo_button {
-  width: 100%;
+    width: 100%;
 }
 
 .gogo_spin {
-  animation: ani-demo-spin 1s linear infinite;
+    animation: ani-demo-spin 1s linear infinite;
 }
 
 .gogo_row {
-  /*background: #8f959a;*/
-  margin-bottom: 0px;
-  height: 40px;
-  padding-top: 0px;
-  padding-left: 10px;
+    /*background: #8f959a;*/
+    margin-bottom: 0px;
+    height: 40px;
+    padding-top: 0px;
+    padding-left: 10px;
 }
 
 .gogo_list_icon {
-  /*color: ;*/
-  font-size: 24px;
-  color: #ff0000;
+    /*color: ;*/
+    font-size: 24px;
+    color: #ff0000;
 }
 
 

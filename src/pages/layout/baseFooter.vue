@@ -1,5 +1,7 @@
 <template>
-    <Footer class="layout-footer-center">2007-2019 &copy; 沟沟洋科技</Footer>
+    <div style="text-align: center">
+        <Footer class="layout-footer-center">2007-2020 &copy; 沟沟洋科技</Footer>
+    </div>
 </template>
 
 <script>

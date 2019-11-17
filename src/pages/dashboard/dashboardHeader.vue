@@ -13,11 +13,13 @@
         </div>
     </Menu>
 </template>
+
 <script>
-    export default {}
-</script>
-<style>
-    .gogo_title {
-        font-size: 18px;
+    export default {
+        name: "dashboardHeader"
     }
+</script>
+
+<style scoped>
+
 </style>
