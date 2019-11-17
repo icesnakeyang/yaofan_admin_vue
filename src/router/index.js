@@ -5,6 +5,7 @@ import registerHeader from "@/pages/user/register/registerHeader";
 import register from "@/pages/user/register/register";
 import baseSider from "../pages/layout/baseSider";
 import guestLayout from '../pages/layout/guestLayout'
+import footer from '../pages/layout/baseFooter'
 
 Vue.use(Router)
 
@@ -19,7 +20,8 @@ const router = new Router({
                     name: 'register',
                     components: {
                         header: registerHeader,
-                        content: register
+                        content: register,
+                        footer: footer
                     }
                 }
             ]

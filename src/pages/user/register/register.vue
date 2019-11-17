@@ -3,10 +3,13 @@
         <div class="content">
             <Form :model="formItem" :label-width="80">
                 <FormItem label="用户名：">
-                    <Input v-model="formItem.input" placeholder="电话号码"/>
+                    <Input v-model="formItem.username" placeholder="电话号码"/>
                 </FormItem>
                 <FormItem label="密码：">
-                    <Input v-model="formItem.input" placeholder="登录密码"/>
+                    <Input v-model="formItem.password" placeholder="登录密码"/>
+                </FormItem>
+                <FormItem label="确认密码：">
+                    <Input v-model="formItem.password2" placeholder="再次确认登录密码"/>
                 </FormItem>
                 <FormItem>
                     <Button type="primary">注册</Button>
@@ -23,15 +26,9 @@
         data() {
             return {
                 formItem: {
-                    input: '',
-                    select: '',
-                    radio: 'male',
-                    checkbox: [],
-                    switch: true,
-                    date: '',
-                    time: '',
-                    slider: [20, 50],
-                    textarea: ''
+                    username: '',
+                    password: '',
+                    password2: ''
                 }
             }
         }

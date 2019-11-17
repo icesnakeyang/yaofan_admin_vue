@@ -36,7 +36,9 @@
         <Content class="content">
             <router-view name="content"></router-view>
         </Content>
-        <Footer class="layout-footer-center">2011-2016 &copy; TalkingData</Footer>
+        <Footer>
+            <router-view name="footer"></router-view>
+        </Footer>
     </Layout>
 </template>
 
