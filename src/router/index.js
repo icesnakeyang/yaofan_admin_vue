@@ -12,6 +12,10 @@ import sider from '../pages/layout/baseSider'
 import dashboardHeader from "@/pages/dashboard/dashboardHeader";
 import dashboard from '../pages/dashboard/dashboard'
 import pointApprove from "../pages/point/pointApprove";
+import userList from "../pages/user/userList/userList";
+import userDetail from "../pages/user/userDetail/userDetail";
+import userActionDashboard from "../pages/userAction/dashboard/userActionDashboard";
+import userActionList from "../pages/userAction/userActionList/userActionList";
 
 Vue.use(Router)
 
@@ -64,6 +68,46 @@ const router = new Router({
                         content: pointApprove,
                         footer: footer
                     }
+                },
+                {
+                    path: 'userList',
+                    name: 'userList',
+                    components: {
+                        sider: sider,
+                        header: dashboardHeader,
+                        content: userList,
+                        footer: footer
+                    }
+                },
+                {
+                    path: 'userDetail',
+                    name: 'userDetail',
+                    components: {
+                        sider: sider,
+                        header: dashboardHeader,
+                        content: userDetail,
+                        footer: footer
+                    }
+                },
+                {
+                    path: 'userActionDashboard',
+                    name: 'userActionDashboard',
+                    components: {
+                        sider: sider,
+                        header: dashboardHeader,
+                        content: userActionDashboard,
+                        footer: footer
+                    }
+                },
+                {
+                    path: 'userActionList',
+                    name: 'userActionList',
+                    components: {
+                        sider: sider,
+                        header: dashboardHeader,
+                        content: userActionList,
+                        footer: footer
+                    }
                 }
             ]
         }
@@ -86,6 +130,11 @@ router.beforeEach((to, from, next) => {
         }
     } else {
         window.console.log(to)
+        if(to.path==='/'){
+            next({
+                name:'dashboard'
+            })
+        }
         next()
     }
 })

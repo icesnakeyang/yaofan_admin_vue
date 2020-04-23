@@ -10,7 +10,7 @@
             </Form>
             <Form :label-width="80">
                 <FormItem label="用户名：">
-                    <Input v-model="phone" placeholder="电话号码"/>
+                    <Input v-model="phone" placeholder="登录名"/>
                 </FormItem>
                 <FormItem label="密码：">
                     <Input v-model="password" placeholder="登录密码"/>
@@ -33,7 +33,7 @@
 </template>
 
 <script>
-    import {apiLogin} from "@/api/api";
+    import {apiAdminLogin} from "../../../api/api";
 
     export default {
         name: "login",
@@ -62,14 +62,14 @@
 
                 this.isLoading = true
                 let params = {
-                    phone: this.phone,
+                    loginName: this.phone,
                     password: this.password
                 }
-                apiLogin(params).then((response) => {
+                apiAdminLogin(params).then((response) => {
                     window.console.log(response)
                     if (response.data.code === 0) {
                         this.$Message.success('登录成功')
-                        let token = response.data.data.userInfo.token
+                        let token = response.data.data.adminInfo.token
                         this.$store.dispatch('saveToken', token)
                         this.isLoading = false
                         this.$router.push({

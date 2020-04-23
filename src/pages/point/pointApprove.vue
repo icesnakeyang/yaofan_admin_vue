@@ -8,6 +8,7 @@
                 <Button type="primary" size="small" style="margin-right: 5px" @click="show(index)">审核</Button>
             </template>
         </Table>
+        <Page :total="100" show-total />
         <Modal
                 title="Title"
                 v-model="modal7"
