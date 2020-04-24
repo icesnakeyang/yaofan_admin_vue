@@ -33,8 +33,6 @@
 </template>
 
 <script>
-    import {apiRegister} from "@/api/api";
-
     export default {
         name: "register",
         data() {
@@ -60,18 +58,6 @@
                     this.$Message.error('两次输入的密码不一致')
                     return
                 }
-                let params = {
-                    phone: this.username,
-                    password: this.password,
-                    username: this.realName
-                }
-                apiRegister(params).then((response) => {
-                    if (response.data.code === 0) {
-                        this.$Message.success('注册成功')
-                    } else {
-                        this.$Message.error('注册失败')
-                    }
-                })
             }
         }
     }
