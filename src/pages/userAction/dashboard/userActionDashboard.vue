@@ -80,7 +80,6 @@
             loadAllData() {
                 let params = {}
                 apiTotalUserActionType(params).then((response) => {
-                    console.log(response)
                     this.total_WX_LOGIN = response.data.data.total_WX_LOGIN
                     this.total_CREATE_TASK = response.data.data.total_CREATE_TASK
                     this.total_CREATE_TASK_today = response.data.data.total_CREATE_TASK_today
@@ -94,7 +93,6 @@
                 }
 
                 apiListUserAction(params).then((response) => {
-                    console.log(response)
                     this.userActionList = response.data.data.userActLogs
                     this.totalUserAction = response.data.data.totalUserAction
                 })
