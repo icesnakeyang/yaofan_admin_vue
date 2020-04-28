@@ -25,6 +25,17 @@
                     {{total_WX_LOGIN_today}}
                 </Card>
             </Col>
+            <Col :xs="2" :sm="4" :md="4" :lg="4">
+                <Card class="box_4">
+                    <p slot="title">昨日任务</p>
+                    {{total_CREATE_TASK_lastday}}
+                </Card>
+            </Col><Col :xs="2" :sm="4" :md="4" :lg="4">
+                <Card class="box_4">
+                    <p slot="title">昨日登录</p>
+                    {{total_WX_LOGIN_lastday}}
+                </Card>
+            </Col>
         </Row>
         <div>
             <Card>
@@ -73,7 +84,9 @@
                 total_WX_LOGIN: 0,
                 total_CREATE_TASK: 0,
                 total_CREATE_TASK_today: 0,
-                total_WX_LOGIN_today: 0
+                total_WX_LOGIN_today: 0,
+                total_CREATE_TASK_lastday: 0,
+                total_WX_LOGIN_lastday: 0
             }
         },
         methods: {
@@ -84,6 +97,8 @@
                     this.total_CREATE_TASK = response.data.data.total_CREATE_TASK
                     this.total_CREATE_TASK_today = response.data.data.total_CREATE_TASK_today
                     this.total_WX_LOGIN_today = response.data.data.total_WX_LOGIN_today
+                    this.total_CREATE_TASK_lastday = response.data.data.total_CREATE_TASK_lastday
+                    this.total_WX_LOGIN_lastday = response.data.data.total_WX_LOGIN_lastday
                 })
 
                 params = {
@@ -95,6 +110,7 @@
                 apiListUserAction(params).then((response) => {
                     this.userActionList = response.data.data.userActLogs
                     this.totalUserAction = response.data.data.totalUserAction
+
                 })
 
 
