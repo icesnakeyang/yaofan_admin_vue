@@ -30,10 +30,23 @@
                     <p slot="title">昨日任务</p>
                     {{total_CREATE_TASK_lastday}}
                 </Card>
-            </Col><Col :xs="2" :sm="4" :md="4" :lg="4">
+            </Col>
+            <Col :xs="2" :sm="4" :md="4" :lg="4">
                 <Card class="box_4">
                     <p slot="title">昨日登录</p>
                     {{total_WX_LOGIN_lastday}}
+                </Card>
+            </Col>
+            <Col :xs="2" :sm="4" :md="4" :lg="4">
+                <Card class="box_4">
+                    <p slot="title">本周登录</p>
+                    {{total_WX_LOGIN_thisweek}}
+                </Card>
+            </Col>
+            <Col :xs="2" :sm="4" :md="4" :lg="4">
+                <Card class="box_4">
+                    <p slot="title">本周任务</p>
+                    {{total_CREATE_TASK_thisweek}}
                 </Card>
             </Col>
         </Row>
@@ -86,7 +99,10 @@
                 total_CREATE_TASK_today: 0,
                 total_WX_LOGIN_today: 0,
                 total_CREATE_TASK_lastday: 0,
-                total_WX_LOGIN_lastday: 0
+                total_WX_LOGIN_lastday: 0,
+                total_WX_LOGIN_thisweek: 0,
+                total_CREATE_TASK_thisweek: 0
+
             }
         },
         methods: {
@@ -99,6 +115,8 @@
                     this.total_WX_LOGIN_today = response.data.data.total_WX_LOGIN_today
                     this.total_CREATE_TASK_lastday = response.data.data.total_CREATE_TASK_lastday
                     this.total_WX_LOGIN_lastday = response.data.data.total_WX_LOGIN_lastday
+                    this.total_WX_LOGIN_thisweek = response.data.data.total_WX_LOGIN_thisweek
+                    this.total_CREATE_TASK_thisweek = response.data.data.total_CREATE_TASK_thisweek
                 })
 
                 params = {
