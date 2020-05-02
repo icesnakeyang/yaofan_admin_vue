@@ -143,6 +143,7 @@
                 total_CREATE_TASK_thisweek: 0,
                 total_WX_LOGIN_thismonth:0,
                 total_CREATE_TASK_thismonth:0,
+                monthDays:[],
                 selectActType:'选择用户行为',
                 action:null
             }
@@ -151,6 +152,7 @@
             loadAllData() {
                 let params = {}
                 apiTotalUserActionType(params).then((response) => {
+                    console.log(response)
                     this.total_WX_LOGIN = response.data.data.total_WX_LOGIN
                     this.total_CREATE_TASK = response.data.data.total_CREATE_TASK
                     this.total_CREATE_TASK_today = response.data.data.total_CREATE_TASK_today
@@ -161,6 +163,7 @@
                     this.total_CREATE_TASK_thisweek = response.data.data.total_CREATE_TASK_thisweek
                     this.total_WX_LOGIN_thismonth = response.data.data.total_WX_LOGIN_thismonth
                     this.total_CREATE_TASK_thismonth = response.data.data.total_CREATE_TASK_thismonth
+                    this.monthDays=response.data.data.monthDays
                 })
 
                 params = {
