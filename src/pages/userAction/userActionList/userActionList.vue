@@ -12,7 +12,16 @@
                 </Col>
             </Row>
             <Divider/>
-            <Button type="primay" @click="onQuery">查询</Button>
+            <Row>
+                <Col span="12">
+                    <span>用户行为：</span>
+                    <Select v-model="action" style="width:200px"  @on-change="onSelectAction">
+                        <Option v-for="item in cityList" :value="item.value" :key="item.value">{{ item.label }}</Option>
+                    </Select>
+                </Col>
+            </Row>
+            <Divider/>
+            <Button type="primary" @click="onQuery">查询</Button>
         </Card>
         <Card style="margin: 20px">
             <Table border :columns="cols" :data="actionList"></Table>
@@ -44,7 +53,28 @@
                     },
                     {
                         title: '用户',
-                        key: 'userName'
+                        key: 'userName',
+                        render:(h,params)=>{
+                            return h('div',[
+                                h('Button',{
+                                    props:{
+                                        type:'text',
+                                        size:'small'
+                                    },
+                                    on:{
+                                        click:()=>{
+                                            console.log(params.row.userId)
+                                            this.$router.push({
+                                                name:'userDataAction',
+                                                params:{
+                                                    userId:params.row.userId
+                                                }
+                                            })
+                                        }
+                                    }
+                                }, params.row.userName)
+                            ])
+                        }
                     },
                     {
                         title: '行为',
@@ -80,7 +110,13 @@
                                     },
                                     on: {
                                         click: () => {
-                                            this.show(params.index)
+                                            console.log(params.row.uuid)
+                                            this.$router.push({
+                                                name:'actionDetail',
+                                                params:{
+                                                    actionId:params.row.uuid
+                                                }
+                                            })
                                         }
                                     }
                                 }, '详情')
@@ -157,7 +193,34 @@
                             }
                         }
                     ]
-                }
+                },
+                action:null,
+                cityList: [
+                    {
+                        value: 'LOGIN',
+                        label: 'LOGIN'
+                    },
+                    {
+                        value: 'WX_LOGIN',
+                        label: 'WX_LOGIN'
+                    },
+                    {
+                        value: 'CREATE_TASK',
+                        label: 'CREATE_TASK'
+                    },
+                    {
+                        value: 'GRAB',
+                        label: 'GRAB'
+                    },
+                    {
+                        value: 'CREATE_TASK_LOG',
+                        label: 'CREATE_TASK_LOG'
+                    },
+                    {
+                        value: 'CREATE_COMPLETE',
+                        label: 'CREATE_COMPLETE'
+                    }
+                ]
             }
         },
         methods: {
@@ -166,7 +229,8 @@
                     pageIndex: this.pageIndex,
                     pageSize: this.pageSize,
                     startTime:this.startTime,
-                    endTime:this.endTime
+                    endTime:this.endTime,
+                    action:this.action
                 }
                 apiListUserAction(params).then((response) => {
                     console.log(response)
@@ -192,6 +256,9 @@
             onQuery(){
                 this.pageIndex=1
                 this.loadAllData()
+            },
+            onSelectAction(){
+                console.log(this.action)
             }
         },
         mounted() {

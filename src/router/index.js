@@ -16,6 +16,8 @@ import userList from "../pages/user/userList/userList";
 import userDetail from "../pages/user/userDetail/userDetail";
 import userActionDashboard from "../pages/userAction/dashboard/userActionDashboard";
 import userActionList from "../pages/userAction/userActionList/userActionList";
+import userDataAction from "../pages/userAction/userData/userDataAction";
+import actionDetail from "../pages/userAction/actionDetail/actionDetail";
 
 Vue.use(Router)
 
@@ -106,6 +108,26 @@ const router = new Router({
                         sider: sider,
                         header: dashboardHeader,
                         content: userActionList,
+                        footer: footer
+                    }
+                },
+                {
+                    path: 'userDataAction',
+                    name: 'userDataAction',
+                    components: {
+                        sider: sider,
+                        header: dashboardHeader,
+                        content: userDataAction,
+                        footer: footer
+                    }
+                },
+                {
+                    path: 'actionDetail',
+                    name: 'actionDetail',
+                    components: {
+                        sider: sider,
+                        header: dashboardHeader,
+                        content: actionDetail,
                         footer: footer
                     }
                 }

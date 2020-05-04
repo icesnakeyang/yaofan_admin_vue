@@ -50,3 +50,11 @@ export const apiTotalUserActionType = params => {
         }
     })
 }
+
+export const apiGetUserAction = params => {
+    return axios.post(`${host}/admin/getUserAction`, params, {
+        headers: {
+            token: store.state.gogo_yaofan_token
+        }
+    })
+}

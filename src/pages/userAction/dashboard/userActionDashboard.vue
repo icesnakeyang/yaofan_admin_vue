@@ -174,9 +174,9 @@
                 }
 
                 apiListUserAction(params).then((response) => {
+                    console.log(response)
                     this.userActionList = response.data.data.userActLogs
                     this.totalUserAction = response.data.data.totalUserAction
-
                 })
 
 
