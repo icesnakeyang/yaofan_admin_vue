@@ -7,7 +7,8 @@ export default new Vuex.Store({
     state: {
         gogo_yaofan_token: '' || localStorage.gogo_yaofan_token,
         user_id: '' || localStorage.user_id,
-        action_id: '' || localStorage.action_id
+        action_id: '' || localStorage.action_id,
+        task_id:''|| localStorage.task_id
     },
     actions: {
         saveToken(ctx, token) {
@@ -18,6 +19,9 @@ export default new Vuex.Store({
         },
         saveActionId(ctx, actionId) {
             ctx.commit('saveActionId', actionId)
+        },
+        saveTaskId(ctx, taskId){
+            ctx.commit('saveTaskId', taskId)
         }
     },
     mutations: {
@@ -32,6 +36,10 @@ export default new Vuex.Store({
         saveActionId(state, actionId) {
             state.action_id = actionId
             localStorage.action_id = actionId
+        },
+        saveTaskId(state, taskId){
+            state.task_id=taskId
+            localStorage.task_id=taskId
         }
     }
 })

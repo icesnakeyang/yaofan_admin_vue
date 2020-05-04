@@ -18,6 +18,7 @@ import userActionDashboard from "../pages/userAction/dashboard/userActionDashboa
 import userActionList from "../pages/userAction/userActionList/userActionList";
 import userDataAction from "../pages/userAction/userData/userDataAction";
 import actionDetail from "../pages/userAction/actionDetail/actionDetail";
+import taskPage from "@/pages/task/taskPage";
 
 Vue.use(Router)
 
@@ -128,6 +129,16 @@ const router = new Router({
                         sider: sider,
                         header: dashboardHeader,
                         content: actionDetail,
+                        footer: footer
+                    }
+                },
+                {
+                    path: 'taskPage',
+                    name: 'taskPage',
+                    components: {
+                        sider: sider,
+                        header: dashboardHeader,
+                        content: taskPage,
                         footer: footer
                     }
                 }
