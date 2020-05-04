@@ -3,14 +3,16 @@
         <Card style="margin: 20px;">
             <Row>
                 <Col span="12">
+                    <span>开始日期：</span>
                     <DatePicker type="date" :options="options1" placeholder="Select date" style="width: 200px" @on-change="onDate1"></DatePicker>
                 </Col>
                 <Col span="12">
-                    <DatePicker type="daterange" :options="options2" placement="bottom-end" placeholder="Select date" style="width: 200px"></DatePicker>
+                    <span>截止日期：</span>
+                    <DatePicker type="date" :options="options1" placeholder="Select date" style="width: 200px" @on-change="onDate2"></DatePicker>
                 </Col>
             </Row>
             <Divider/>
-            <Button type="primay">查询</Button>
+            <Button type="primay" @click="onQuery">查询</Button>
         </Card>
         <Card style="margin: 20px">
             <Table border :columns="cols" :data="actionList"></Table>
@@ -33,6 +35,8 @@
                 pageSize: 10,
                 actionList: [],
                 totalAction: 0,
+                startTime:null,
+                endTime:null,
                 cols: [
                     {
                         title: 'ids',
@@ -93,6 +97,7 @@
                             },
                             onClick: (picker) => {
                                 console.log(picker)
+                                console.log(this.startTime)
                                 this.$Message.info('Click today');
                             }
                         },
@@ -159,7 +164,9 @@
             loadAllData() {
                 let params = {
                     pageIndex: this.pageIndex,
-                    pageSize: this.pageSize
+                    pageSize: this.pageSize,
+                    startTime:this.startTime,
+                    endTime:this.endTime
                 }
                 apiListUserAction(params).then((response) => {
                     console.log(response)
@@ -176,6 +183,15 @@
             },
             onDate1(e){
                 console.log(e)
+                this.startTime=e
+            },
+            onDate2(e){
+              console.log(e)
+              this.endTime=e
+            },
+            onQuery(){
+                this.pageIndex=1
+                this.loadAllData()
             }
         },
         mounted() {
