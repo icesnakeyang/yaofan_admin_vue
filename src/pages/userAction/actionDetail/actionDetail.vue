@@ -7,7 +7,7 @@
             <p>行为：{{action.action}}</p>
             <p>结果：{{action.result}}</p>
             <p>备注：{{action.memo}}</p>
-            <Divider />
+            <Divider/>
             <Button type="primary" @click="onGoTask">查看任务</Button>
         </Card>
     </div>
@@ -44,12 +44,12 @@
                 })
 
             },
-            onGoTask(){
-                let s1=this.action.memo.indexOf('taskId:')
-                let taskId=this.action.memo.substring(s1+7,s1+43)
+            onGoTask() {
+                let s1 = this.action.memo.indexOf('taskId:')
+                let taskId = this.action.memo.substring(s1 + 7, s1 + 43)
                 this.$router.push({
-                    name:'taskPage',
-                    params:{
+                    name: 'taskPage',
+                    params: {
                         taskId
                     }
                 })
